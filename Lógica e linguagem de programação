@@ -1,0 +1,114 @@
+Dia 22/08/2024 
+Aula de Lógica e linguagem de programação
+Roteiro de Atividade Prática 
+
+ 
+
+Nome:    Caio Henrique Alvarez                               	 Turma:    2°C                 . 
+
+ 
+
+Atividade 1: Sistema de classificação de pedidos 
+
+ 
+
+Objetivo da Atividade:  
+
+Desenvolver um programa em Python que classifica os pedidos em diferentes categorias: "Normal", "Prioritário" e "Urgente". 
+
+ 
+
+Detalhes do Exercício: 
+
+ 
+
+Você trabalha como desenvolvedor em uma empresa de e-commerce. A empresa deseja implementar um sistema para classificar automaticamente os pedidos recebidos, com base em seu valor e urgência, para otimizar o processo de atendimento. 
+
+ 
+
+ 
+
+Enunciado 
+
+Escreva uma função em Python que receba dois parâmetros: valor_pedido (um número real representando o valor do pedido) e dias_para_entrega (um número inteiro representando os dias restantes para a entrega do pedido). Com base nesses parâmetros, a função deve classificar o pedido nas seguintes categorias: 
+
+"Normal": para pedidos com valor menor que 100 reais ou com mais de 7 dias para entrega; 
+
+"Prioritário": para pedidos com valor entre 100 e 500 reais ou com 4 a 7 dias para entrega; 
+
+"Urgente": para pedidos com valor acima de 500 reais ou com menos de 4 dias para entrega. 
+
+ 
+
+ 
+
+Dica para resolução 
+
+Para resolver essa atividade, concentre-se em implementar a lógica de classificação dentro da função classificar_pedido. Lembre-se de usar estruturas de decisão compostas (if, elif, else) para verificar as condições de cada categoria de pedido. 
+
+ 
+
+Tempo estimado: 30 minutos. 
+
+ 
+
+Lista de materiais 
+
+Computador com internet 
+
+Caderno para anotações 
+
+Caneta 
+ 
+
+Procedimento experimental 
+
+ 
+
+Desenvolva o código para resolução do programa citado. 
+
+Descreva em papel a estrutura lógica que seu grupo pensou para solucionar a atividade. 
+
+Anote a resolução abaixo e envie no AVA. 
+
+ 
+
+def classificar_pedido(valor_pedido, dias_para_entrega): 
+
+    if valor_pedido > 500 or dias_para_entrega < 4: 
+
+        return "Urgente" 
+
+    elif 100 <= valor_pedido <= 500 or 4 <= dias_para_entrega <= 7: 
+
+        return "Prioritário" 
+
+    else: 
+
+        return "Normal" 
+
+     
+
+valor_pedido = float(input("Digite o valor do pedido: ")) 
+
+dias_para_entrega = int(input("Quantos dias restantes para a entrega? ")) 
+
+  
+
+classificacao = classificar_pedido(valor_pedido, dias_para_entrega) 
+
+  
+
+  
+
+print(f"A classificação do pedido é: {classificacao}") 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
