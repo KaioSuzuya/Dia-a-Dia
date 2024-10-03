@@ -1,0 +1,43 @@
+# lista dos alunos
+#data: 04-10-24
+#este codigo server para calcular as notas
+#data de alteração 04-10-24
+alunos = []
+
+# loop
+while True:
+    # nome do aluno
+    nome = input("Digite o nome do aluno (ou 'sair' para encerrar): ")
+
+    # verifica se o usuário deseja sair
+    if nome.lower() == 'sair':
+        break
+
+    # Solicitando as 4 notas do aluno
+    nota1 = float(input("Digite a primeira nota: "))
+    nota2 = float(input("Digite a segunda nota: "))
+    nota3 = float(input("Digite a terceira nota: "))
+    nota4 = float(input("Digite a quarta nota: "))
+
+    # calculando a média
+    media = (nota1 + nota2 + nota3 + nota4) / 4
+
+    # verificando o resultado com base na média
+    if media < 3:
+        resultado = "Reprovado"
+    elif 3 <= media < 7:
+        resultado = "Recuperação"
+    else:
+        resultado = "Aprovado"
+
+    # guardando os dados do aluno no formato de dicionário
+    alunos.append({
+        "nome": nome,
+        "media": media,
+        "resultado": resultado
+    })
+
+# exibindo todas as informações armazenadas
+print("\n=== Resultados Finais ===")
+for aluno in alunos:
+    print(f"Aluno: {aluno['nome']}, Média: {aluno['media']:.2f}, Resultado: {aluno['resultado']}")
