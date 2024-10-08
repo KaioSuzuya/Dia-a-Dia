@@ -1,0 +1,86 @@
+#dia 14/09 aula de logica e programação
+import tkinter as tk
+from tkinter import messagebox
+
+# Lista para armazenar os dados dos alunos
+alunos = []
+
+# Função para calcular a média e o resultado
+def calcular_media():
+    try:
+        nome = entrada_nome.get()
+        nota1 = float(entrada_nota1.get())
+        nota2 = float(entrada_nota2.get())
+        nota3 = float(entrada_nota3.get())
+        nota4 = float(entrada_nota4.get())
+
+        # Calculando a média
+        media = (nota1 + nota2 + nota3 + nota4) / 4
+
+        # Verificando o resultado com base na média
+        if media < 3:
+            resultado = "Reprovado"
+        elif 3 <= media < 7:
+            resultado = "Recuperação"
+        else:
+            resultado = "Aprovado"
+
+        # Armazenando os dados do aluno em um dicionário
+        alunos.append({
+            "nome": nome,
+            "media": media,
+            "resultado": resultado
+        })
+
+        # Adicionando o aluno à Listbox
+        lista_alunos.insert(tk.END, f"{nome} - Média: {media:.2f} - Resultado: {resultado}")
+
+        # Exibindo os resultados na interface
+        messagebox.showinfo("Resultado", f"Nome: {nome}\nMédia: {media:.2f}\nResultado: {resultado}")
+
+        # Limpando as entradas após calcular
+        entrada_nome.delete(0, tk.END)
+        entrada_nota1.delete(0, tk.END)
+        entrada_nota2.delete(0, tk.END)
+        entrada_nota3.delete(0, tk.END)
+        entrada_nota4.delete(0, tk.END)
+
+    except ValueError:
+        messagebox.showerror("Erro", "Por favor, insira notas válidas.")
+
+# Criando a janela principal
+janela = tk.Tk()
+janela.title("Cálculo de Notas")
+janela.geometry("700x600")
+
+# Criando os widgets
+tk.Label(janela, text="Nome do Aluno:").pack(pady=5)
+entrada_nome = tk.Entry(janela)
+entrada_nome.pack(pady=5)
+
+tk.Label(janela, text="Nota 1:").pack(pady=5)
+entrada_nota1 = tk.Entry(janela)
+entrada_nota1.pack(pady=5)
+
+tk.Label(janela, text="Nota 2:").pack(pady=5)
+entrada_nota2 = tk.Entry(janela)
+entrada_nota2.pack(pady=5)
+
+tk.Label(janela, text="Nota 3:").pack(pady=5)
+entrada_nota3 = tk.Entry(janela)
+entrada_nota3.pack(pady=5)
+
+tk.Label(janela, text="Nota 4:").pack(pady=5)
+entrada_nota4 = tk.Entry(janela)
+entrada_nota4.pack(pady=5)
+
+# Botão para calcular a média
+botao_calcular = tk.Button(janela, text="Calcular Média", command=calcular_media)
+botao_calcular.pack(pady=10)
+
+# Listbox para mostrar os alunos
+lista_alunos = tk.Listbox(janela, width=50)
+lista_alunos.pack(pady=15)
+
+# Executando a janela principal
+janela.mainloop()
